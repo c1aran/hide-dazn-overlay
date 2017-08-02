@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "Hide DAZN-Overlay",
-  "description": "Disable the annoying DAZN-Overlay.",
-  "version": "1.0.0",
+  "name": "Hide overlay on dazn.com",
+  "description": "Simple chrome extension to hide the sometimes annoying overlay on dazn.com.",
+  "version": "1.0.1",
 
   "background": {
     "scripts": ["background.js"]
