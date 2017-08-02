@@ -6,11 +6,16 @@ function showPageAction(tabID, changeInfo, tab){
 }
 chrome.tabs.onUpdated.addListener(showPageAction);
 
+/* Toggle icon */
+function toggleIcon(state, tab){
+  chrome.pageAction.setIcon({path: state ? "off.png" : "on.png", tabId:tab.id});
+}
+
 /* Control toggling */
 var toggle = {};
 chrome.pageAction.onClicked.addListener(function(tab) {
   var state = !toggle[tab.id];
-  chrome.pageAction.setIcon({path: state ? "off.png" : "on.png", tabId:tab.id}); // Toggle icon
+  toggleIcon(state, tab);
   chrome.tabs.sendMessage(tab.id, {toggle: state}); // Send message to toggle class
   toggle[tab.id] = state;
 });
